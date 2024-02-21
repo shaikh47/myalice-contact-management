@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./contactList.css";
+import { generateColorFromWord } from "../../utils/misc";
 
 const getRandomColorHex = () => {
   // Generate a random hexadecimal color
@@ -7,7 +8,7 @@ const getRandomColorHex = () => {
   return randomColor;
 };
 
-const ContactList = ({ serial, name, photo, email, phone, address }) => {
+const ContactList = ({ serial, name, photo, email, phone, address, tags }) => {
   return (
     <div className="container">
       <div>{serial}</div>
@@ -22,8 +23,20 @@ const ContactList = ({ serial, name, photo, email, phone, address }) => {
         <div>{name}</div>
       </div>
       <div>{email}</div>
-      <div>{phone}</div>
+      <div>{phone.length === 0 ? "" : phone[0].number}</div>
       <div>{address}</div>
+      <div className="tags-container">
+        {tags.map((tag, index) => {
+          return (
+            <div
+              className="tag-chip"
+              key={index}
+            >
+              {tag.label_name}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

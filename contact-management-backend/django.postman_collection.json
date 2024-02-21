@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"number\": \"123123123\",\r\n    \"contact_type\" : \"phone\",\r\n    \"is_primary\" : false\r\n}",
+							"raw": "{\r\n    \"number\": \"6969699696969\",\r\n    \"contact_type\" : \"skype\",\r\n    \"is_primary\" : true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -258,6 +258,16 @@
 		{
 			"name": "get all contacts",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTE5NjUxLCJpYXQiOjE3MDg1MTYwNTEsImp0aSI6IjE3YmY1Yzk3Mjc2NjQ3NGNiNDAwMDNkOGNmNTM5MWY4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaGFpa2gifQ.v-8HG6KebEbA19Q684Tsu_vkEaz3eF3wSlgtvexXqKY",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -285,7 +295,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"email\": \"john@example.com\",\r\n    \"notes\": \"some note about him\",\r\n    \"birthday\": \"2020-2-2\",\r\n    \"company\": \"bjit\",\r\n    \"address\": \"mirpur\",\r\n    \"source\": \"school\",\r\n    \"labels\": [\r\n        {\r\n            \"label_name\": \"Friend\"\r\n        },\r\n        {\r\n            \"label_name\": \"Work\"\r\n        }\r\n    ],\r\n    \"contact_numbers\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"contact_type\": \"phone\",\r\n            \"is_primary\": true\r\n        },\r\n        {\r\n            \"number\": \"john_doe_skype\",\r\n            \"contact_type\": \"skype\",\r\n            \"is_primary\": false\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"first_name\": \"omar\",\r\n    \"last_name\": \"shaikh\",\r\n    \"email\": \"john@example.com\",\r\n    \"notes\": \"some note about him\",\r\n    \"birthday\": \"2020-2-2\",\r\n    \"company\": \"bjit\",\r\n    \"address\": \"mirpur\",\r\n    \"source\": \"school\",\r\n    \"labels\": [\r\n        {\r\n            \"label_name\": \"Friend\"\r\n        },\r\n        {\r\n            \"label_name\": \"Work\"\r\n        }\r\n    ],\r\n    \"contact_numbers\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"contact_type\": \"phone\",\r\n            \"is_primary\": true\r\n        },\r\n        {\r\n            \"number\": \"john_doe_skype\",\r\n            \"contact_type\": \"skype\",\r\n            \"is_primary\": false\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -377,11 +387,14 @@
 		{
 			"name": "login",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"shaikh47\",\r\n    \"password\":\"bjit1234\"\r\n}",
+					"raw": "{\r\n    \"username\": \"shaikh\",\r\n    \"password\":\"shaikh\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -449,7 +462,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTA1NTU1LCJpYXQiOjE3MDg1MDE5NTUsImp0aSI6IjlmZTFhZGZhODg0NDQ2YjlhMDgzM2QxMWE1Y2Y0NTVlIiwidXNlcl9pZCI6MTEsInVzZXJuYW1lIjoic2hhaWtoNDcifQ.9jHEksh5pqrKDVVmvvigKYOb7NWZyhldrq_dYkYPfD4",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTI0NzQwLCJpYXQiOjE3MDg1MjExNDAsImp0aSI6IjY0ODNmYWM0ZGNkMzQ4Yzc4YmE2YTQ5NmMwNDZiYTE0IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJzaGFpa2gifQ.ZW65yZxBNEUDy5q0oZKJq8TFBf4W71AmSmLwssKA1qw",
 							"type": "string"
 						}
 					]
