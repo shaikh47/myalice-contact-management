@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #47455e;
+  justify-content: space-between;
+  padding: 10px;
+  background: #1b1b1b;
+}
+
+.name-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.no-photo {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -1,0 +1,29 @@
+# create a new virtual env
+python -m venv .venv
+
+# go into the virtual env
+.venv\Scripts\activate
+
+# create a new app component
+django-admin startproject drinks .
+
+# create admin page super user
+python manage.py createsuperuser
+
+# migrate the databases
+python manage.py migrate
+
+# create migration file of a newly created Db models from your app 
+python manage.py makemigrations drinks
+
+# run the server
+python manage.py runserver 3001
+
+
+
+
+
+
+# dependencies
+pip install djangorestframework
+pip install django
