@@ -1,0 +1,118 @@
+.commonStyles {
+  font-family: "Poppins";
+  font-style: normal;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #5C8374;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.input {
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+
+  display: flex;
+  margin: auto;
+  letter-spacing: 0.0125em;
+
+  color: #282860;
+  opacity: 1;
+
+  margin-top: 1.1em;
+}
+
+.signup-button {
+  background: #720455;
+  color: #fffdfc;
+  border-radius: 0.5rem;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+
+  padding: 10px;
+  width: 100%;
+
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+  outline: none;
+  margin-top: 2em;
+}
+
+.signup-button:hover {
+  background: #3c0753;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-header {
+  color: #005b41;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.signup-paragraph {
+  color: #9ec8b9;
+  text-align: center;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 140%; /* 1.6625rem */
+  letter-spacing: 0.1rem;
+  opacity: 0.7;
+}
+
+.login-prompt {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  letter-spacing: 0.0125em;
+  color: #8CABFF;
+  margin-top: 7%;
+}
+
+.login-link {
+  color: #4477CE;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  color: #1760df;
+}
+
+
+.passwordRules {
+  text-align: justify;
+
+  font-weight: 400;
+  font-size: 12px;
+  color: #ec7440;
+
+  letter-spacing: 0.0125em;
+  color: #ec7440;
+  opacity: 0.7;
+}
+
+.passwordRulesContainer {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.invalidPrompt {
+  color: #f13c00;
+  font-weight: 600;
+  font-size: 14px;
+}

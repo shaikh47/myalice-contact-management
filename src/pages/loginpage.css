@@ -1,0 +1,7 @@
+.loginpage-container {
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
