@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import path
 from contact_management import views
 from rest_framework.urlpatterns import format_suffix_patterns
+from django.urls import re_path
+
+from rest_framework_simplejwt.views import TokenVerifyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', views.contact_list),
-    path('contacts/<int:id>', views.contact_detail)
+    path('contacts/<int:id>', views.contact_detail),
+    
+    re_path('signup', views.signup),
+    re_path('login', views.login),
+    re_path('test_token', views.test_token),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
