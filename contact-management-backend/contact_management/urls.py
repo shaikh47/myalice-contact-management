@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', views.get_all_contacts),
     path('contacts/<int:contact_profile_id>', views.update_contact),
-    # path('contact_number/<int:contact_profile_id>', views.contact_number),
+    
     path('add_label/', views.add_label_for_contact),
     path('update_label/', views.update_label_for_contact),
     path('delete_label/', views.delete_label_for_contact),
