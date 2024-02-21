@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UserSerializer
+from django.db import IntegrityError
 
 import jwt
 from rest_framework_simplejwt.authentication import JWTAuthentication
@@ -20,17 +21,33 @@ JWT_authenticator = JWTAuthentication()
 
 @api_view(['POST'])
 def signup(request):
-    serializer = UserSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        user = User.objects.get(username=request.data['username'])
-        user.set_password(request.data['password'])
-        user.save()
-        refresh = RefreshToken.for_user(user)
-        refresh['username'] = user.username
-        access_token = str(refresh.access_token)
-        return Response({'token': access_token, 'user': serializer.data})
-    return Response(serializer.errors, status=status.HTTP_200_OK)
+    try:
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            # Attempt to save the user
+            serializer.save()
+
+            # Set password and save user instance
+            user = User.objects.get(username=request.data['username'])
+            user.set_password(request.data['password'])
+            user.save()
+
+            # Generate JWT token
+            refresh = RefreshToken.for_user(user)
+            refresh['username'] = user.username
+            access_token = str(refresh.access_token)
+
+            return Response({'token': access_token, 'user': serializer.data}, status=status.HTTP_201_CREATED)
+
+    except IntegrityError as e:
+        # Handle IntegrityError (e.g., duplicate user)
+        error_message = str(e)
+        if 'unique constraint' in error_message.lower():
+            return Response({'error': 'Username or email already exists.'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({'error': 'Database error.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def login(request):

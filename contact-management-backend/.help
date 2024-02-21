@@ -29,3 +29,5 @@ python manage.py createsuperuser
 # dependencies
 pip install djangorestframework
 pip install django
+pip install djangorestframework-simplejwt
+pip install django-cors-headers
