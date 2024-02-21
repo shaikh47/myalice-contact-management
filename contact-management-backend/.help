@@ -19,9 +19,11 @@ python manage.py makemigrations drinks
 # run the server
 python manage.py runserver 3001
 
-
-
-
+# steps to remove the db and run a fresh migration
+rm db.sqlite3
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
 
 
 # dependencies
