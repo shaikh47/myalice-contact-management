@@ -79,9 +79,22 @@ def login(request):
     return Response({'token': access_token, 'user': serializer.data})
 
 @api_view(['GET'])
-def test_token(request):
+def get_login_user_data_from_jwt(request):
     IsAuthenticated(request)
-    return Response("Authenticated")
+    
+    response = JWT_authenticator.authenticate(request)
+    user, token = response
+    username_jwt = token.payload.get('username')
+    username_db = User.objects.filter(username=username_jwt).first()
+    
+    full_user_data = {
+        'id': username_db.id,
+        'username': username_db.username,
+        'email': username_db.email,
+        'first_name': username_db.first_name,
+        'last_name': username_db.first_name,
+    }
+    return Response({"data": full_user_data})
         
 def IsAuthenticated(request):
     response = JWT_authenticator.authenticate(request)

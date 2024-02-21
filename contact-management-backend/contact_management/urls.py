@@ -27,9 +27,9 @@ urlpatterns = [
     path('contacts/', views.contact_list),
     path('contacts/<int:id>', views.contact_detail),
     
-    re_path('signup', views.signup),
-    re_path('login', views.login),
-    re_path('test_token', views.test_token),
+    re_path('signup/', views.signup),
+    re_path('login/', views.login),
+    re_path('loggedindata/', views.get_login_user_data_from_jwt),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

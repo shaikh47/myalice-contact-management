@@ -11,4 +11,11 @@ class ContactSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = User 
-        fields = ['id', 'username', 'password', 'email']
+        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name']
+        extra_kwargs = {
+            'username': {'required': True},
+            'email': {'required': True},
+            'password': {'write_only': True},  
+            'first_name': {'required': True},
+            'last_name': {'required': True},
+        }
