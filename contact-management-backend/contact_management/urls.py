@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from contact_management import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contacts/', views.contact_list)
+    path('contacts/', views.contact_list),
+    path('contacts/<int:id>', views.contact_detail)
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
