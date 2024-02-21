@@ -24,8 +24,16 @@ from rest_framework_simplejwt.views import TokenVerifyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contacts/', views.contact_list),
-    path('contacts/<int:id>', views.contact_detail),
+    path('contacts/', views.get_all_contacts),
+    path('contacts/<int:contact_profile_id>', views.update_contact),
+    # path('contact_number/<int:contact_profile_id>', views.contact_number),
+    path('add_label/', views.add_label_for_contact),
+    path('update_label/', views.update_label_for_contact),
+    path('delete_label/', views.delete_label_for_contact),
+    
+    path('add_number/', views.add_number_for_contact),
+    path('update_number/', views.update_number_for_contact),
+    path('delete_number/', views.delete_number_for_contact),
     
     re_path('signup/', views.signup),
     re_path('login/', views.login),

@@ -20,7 +20,7 @@ class ContactProfile(models.Model):
     birthday = models.DateField(blank=True, null=True)
     company = models.CharField(max_length=255, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
-    source = models.TimeField(max_length=255, blank=True, null=True)
+    source = models.TextField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

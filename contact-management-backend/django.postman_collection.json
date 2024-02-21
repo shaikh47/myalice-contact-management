@@ -1,0 +1,494 @@
+{
+	"info": {
+		"_postman_id": "45ff4d9c-5348-43c1-94be-fa9d67a33ae8",
+		"name": "django",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27138674",
+		"_collection_link": "https://bjit-bc-team.postman.co/workspace/IBY-Blockchain~97796c86-3a05-4bcd-85d7-de766a33162d/collection/27138674-45ff4d9c-5348-43c1-94be-fa9d67a33ae8?action=share&source=collection_link&creator=27138674"
+	},
+	"item": [
+		{
+			"name": "contact label",
+			"item": [
+				{
+					"name": "update label Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label_name\": \"yes Wor asd asd k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/update_label/?contact_id=2&label_id=5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"update_label",
+								""
+							],
+							"query": [
+								{
+									"key": "contact_id",
+									"value": "2"
+								},
+								{
+									"key": "label_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete label Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label_name\": \"yes Wor asd asd k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/update_label/?contact_id=2&label_id=5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"update_label",
+								""
+							],
+							"query": [
+								{
+									"key": "contact_id",
+									"value": "2"
+								},
+								{
+									"key": "label_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add label Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label_name\": \"not Work\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/add_label/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"add_label",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "number",
+			"item": [
+				{
+					"name": "update number",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"123123123\",\r\n    \"contact_type\" : \"phone\",\r\n    \"is_primary\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/update_number/?contact_id=1&number_id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"update_number",
+								""
+							],
+							"query": [
+								{
+									"key": "contact_id",
+									"value": "1"
+								},
+								{
+									"key": "number_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete number",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"label_name\": \"yes Wor asd asd k\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/delete_number/?contact_id=1&number_id=5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"delete_number",
+								""
+							],
+							"query": [
+								{
+									"key": "contact_id",
+									"value": "1"
+								},
+								{
+									"key": "number_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": \"123123123\",\r\n    \"contact_type\" : \"phone\",\r\n    \"is_primary\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/add_number/?contact_id=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"add_number",
+								""
+							],
+							"query": [
+								{
+									"key": "contact_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get all contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/contacts/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"contacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Doe\",\r\n    \"email\": \"john@example.com\",\r\n    \"notes\": \"some note about him\",\r\n    \"birthday\": \"2020-2-2\",\r\n    \"company\": \"bjit\",\r\n    \"address\": \"mirpur\",\r\n    \"source\": \"school\",\r\n    \"labels\": [\r\n        {\r\n            \"label_name\": \"Friend\"\r\n        },\r\n        {\r\n            \"label_name\": \"Work\"\r\n        }\r\n    ],\r\n    \"contact_numbers\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"contact_type\": \"phone\",\r\n            \"is_primary\": true\r\n        },\r\n        {\r\n            \"number\": \"john_doe_skype\",\r\n            \"contact_type\": \"skype\",\r\n            \"is_primary\": false\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/contacts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"contacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update contact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Updated John\",\r\n    \"last_name\": \"Updated Doe\",\r\n    \"email\": \"updated_john@example.com\",\r\n    \"notes\": \"Updated note\",\r\n    \"birthday\": \"2021-01-01\",\r\n    \"company\": \"Updated BJIT\",\r\n    \"address\": \"Updated Mirpur\",\r\n    \"source\": \"Updated Work\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/contacts/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"contacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/contacts/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"contacts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"shaikh47\",\r\n    \"password\":\"bjit1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"shaikh47\",\r\n    \"password\":\"bjit1234\",\r\n    \"email\" : \"omarshaikh47@gmail.com\",\r\n    \"first_name\":\"omar\",\r\n    \"last_name\":\"shaikh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/signup/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"signup",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get logged in user data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTA1NTU1LCJpYXQiOjE3MDg1MDE5NTUsImp0aSI6IjlmZTFhZGZhODg0NDQ2YjlhMDgzM2QxMWE1Y2Y0NTVlIiwidXNlcl9pZCI6MTEsInVzZXJuYW1lIjoic2hhaWtoNDcifQ.9jHEksh5pqrKDVVmvvigKYOb7NWZyhldrq_dYkYPfD4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authentication",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTAwNzM0LCJpYXQiOjE3MDg0OTcxMzQsImp0aSI6ImU5M2U4OWI3MjAxYzRjMjViOGFlNmM3YTgzMDU3ZmU5IiwidXNlcl9pZCI6M30.cqpAB-hP1pTOWSnkRm56khSfZGMm9FnuKZKUgAK-LQY",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3001/loggedindata/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"loggedindata",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
