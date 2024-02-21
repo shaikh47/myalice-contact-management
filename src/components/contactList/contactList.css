@@ -3,8 +3,13 @@
   align-items: center;
   border: 1px solid #47455e;
   justify-content: space-between;
-  padding: 10px;
-  background: #1b1b1b;
+  padding: 10px 20px;
+  background-color: #1b1b1b;
+  transition: background-color 0.3s ease;
+}
+
+.container:hover {
+  background-color: #00ff2610;
 }
 
 .name-container {
@@ -45,4 +50,9 @@
   padding: 4px 12px;
   border: 1px solid #03c988;
   color: #03c988;
+}
+
+.contact-list-cell {
+  flex: 4;
+  justify-content: flex-start;
 }

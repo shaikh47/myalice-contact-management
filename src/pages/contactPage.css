@@ -1,3 +1,13 @@
 .contact-page-container {
-    margin-top: 80px;
+  margin-top: 80px;
+}
+
+.contact-list-heading {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  border: 1px solid #47455e;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #1b1b1b;
 }

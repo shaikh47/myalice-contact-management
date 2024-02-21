@@ -15,6 +15,23 @@ const names = [
   "Shafi Uddin Ahmed",
 ];
 
+const ListHeader = () => {
+  return (
+    <div className="contact-list-heading">
+      <div className="contact-list-cell" style={{ flex: "1" }}>
+        SERIAL
+      </div>
+      <div className="contact-list-cell">
+        <div>NAME</div>
+      </div>
+      <div className="contact-list-cell">NAME</div>
+      <div className="contact-list-cell">PHONE</div>
+      <div className="contact-list-cell">ADDRESS</div>
+      <div className="contact-list-cell">TAGS</div>
+    </div>
+  );
+};
+
 function ContactPage() {
   const [contacts, setContacts] = useState([]);
 
@@ -34,7 +51,7 @@ function ContactPage() {
     getAllContacts(JSON.parse(Cookies.get("contact")).accessToken)
       .then((res) => {
         console.log("response: ", res);
-        setContacts(res.data.contact_profiles)
+        setContacts(res.data.contact_profiles);
       })
       .catch((err) => {
         console.log("Some error occured: ", err);
@@ -45,6 +62,7 @@ function ContactPage() {
     <>
       <Navbar />
       <div className="contact-page-container">
+        <ListHeader />
         {contacts.map((contact, index) => {
           return (
             <ContactList

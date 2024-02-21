@@ -11,8 +11,10 @@ const getRandomColorHex = () => {
 const ContactList = ({ serial, name, photo, email, phone, address, tags }) => {
   return (
     <div className="container">
-      <div>{serial}</div>
-      <div className="name-container">
+      <div className="contact-list-cell" style={{ flex: "1" }}>
+        {serial}
+      </div>
+      <div className="name-container contact-list-cell">
         {photo ? (
           <img src={photo} alt="profile photo" className="photo" />
         ) : (
@@ -22,16 +24,15 @@ const ContactList = ({ serial, name, photo, email, phone, address, tags }) => {
         )}
         <div>{name}</div>
       </div>
-      <div>{email}</div>
-      <div>{phone.length === 0 ? "" : phone[0].number}</div>
-      <div>{address}</div>
-      <div className="tags-container">
+      <div className="contact-list-cell">{email}</div>
+      <div className="contact-list-cell">
+        {phone.length === 0 ? "" : phone[0].number}
+      </div>
+      <div className="contact-list-cell">{address}</div>
+      <div className="tags-container contact-list-cell">
         {tags.map((tag, index) => {
           return (
-            <div
-              className="tag-chip"
-              key={index}
-            >
+            <div className="tag-chip" key={index}>
               {tag.label_name}
             </div>
           );
