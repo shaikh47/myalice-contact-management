@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #C69749;
+  background: #c69749;
   color: #461111;
 }
 
@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   font-size: 16px;
   font-weight: 600;
   color: azure;
@@ -37,4 +37,8 @@
   font-weight: 700;
   color: aliceblue;
   margin-right: auto;
+}
+
+.logout-button {
+  cursor: pointer;
 }

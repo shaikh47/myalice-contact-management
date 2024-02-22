@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Input, Form, Checkbox, Modal } from "antd";
+import { Input, Form, Checkbox, Modal, message } from "antd";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
@@ -18,13 +18,6 @@ const SignUp = ({ loginClick }) => {
 
   const onFinish = async (values) => {
     console.log(values);
-    // values.name = values["full name"];
-    // values.role = "patient";
-    // delete values["full name"];
-    // delete values["agreement"];
-    // values.name = "dummy name";
-    // values.email = values.email.trim();
-    // values.password = values.password.trim();
     const response = await signup(
       values.username.trim(),
       values.password.trim(),
@@ -32,25 +25,31 @@ const SignUp = ({ loginClick }) => {
       values.firstname.trim(),
       values.lastname.trim()
     );
-    if (response.status === 400) {
+
+    if (response.status === 201) {
+      Cookies.set(
+        "contact",
+        JSON.stringify({
+          accessToken: response.data.token,
+          email: response.data.user.email,
+          id: response.data.user.id,
+          firstName: response.data.user.first_name,
+          lastName: response.data.user.last_name,
+          username: response.data.user.username,
+        }),
+        {
+          expires: 7,
+        }
+      );
+      setLoginStatus("loggedin");
+      setResponse(response.data);
+    } else if (response.status === 400) {
       // some error
-      alert(response.data);
+      message.error(response.data);
+      setLoginStatus("loginerror");
     }
 
     console.log("response is: ", response, "input: ", values);
-    // console.log("token: ", response.tokens.access.token)
-    setResponse(response.data);
-    // if (response.status === 201 || response.status === 200) {
-    //   Cookies.set("jwt_access_token", response.data.tokens.access.token, {
-    //     expires: 7,
-    //   });
-    //   Cookies.set("jwt_refresh_token", response.data.tokens.refresh.token, {
-    //     expires: 7,
-    //   });
-    //   setLoginStatus("loggedin");
-    // } else {
-    //   setLoginStatus("loginerror");
-    // }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -66,7 +65,7 @@ const SignUp = ({ loginClick }) => {
   };
 
   if (loginStatus === "loggedin") {
-    return <Navigate replace to="/questionnaire" />;
+    return <Navigate replace to="/contact" />;
   } else {
     return (
       <div className="signup-container">

@@ -159,6 +159,10 @@ def get_all_contacts(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def update_contact(request, contact_profile_id):
     isAuthenticated = IsAuthenticated(request)
+    user, token = JWT_authenticator.authenticate(request)
+    username = token.payload.get('username')
+    print("This is the username: ", username)
+    
     if isAuthenticated != 200:
         return Response({'data': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
     
@@ -187,9 +191,16 @@ def update_contact(request, contact_profile_id):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
     elif request.method == 'PUT':
+        user_instance = User.objects.get(username=username)
+        contact_profile_data = {
+            'username': user_instance.id,
+            **request.data,
+        }
+        print("This is the object: ", contact_profile_data)
+        
         try:
             contact_profile = ContactProfile.objects.get(contact_profile_id=contact_profile_id)
-            contact_profile_serializer = ContactProfileSerializer(contact_profile, data=request.data)
+            contact_profile_serializer = ContactProfileSerializer(contact_profile, data=contact_profile_data)
             if contact_profile_serializer.is_valid():
                 contact_profile_serializer.save()
                 return Response({'message': 'Contact profile updated successfully'}, status=status.HTTP_200_OK)
@@ -203,7 +214,7 @@ def update_contact(request, contact_profile_id):
 
     elif request.method == 'DELETE':
         try:
-            contact_profile = ContactProfile.objects.get(contact_profile_id=id)
+            contact_profile = ContactProfile.objects.get(contact_profile_id=contact_profile_id)
             contact_profile.delete()
             return Response({'message': 'Contact profile deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 

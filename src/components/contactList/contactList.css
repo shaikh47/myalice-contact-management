@@ -53,6 +53,10 @@
 }
 
 .contact-list-cell {
-  flex: 4;
+  flex: 5;
   justify-content: flex-start;
+}
+
+.delete-button {
+  cursor: pointer;
 }

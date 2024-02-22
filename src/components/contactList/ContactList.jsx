@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "./contactList.css";
 import { generateColorFromWord } from "../../utils/misc";
+import { DeleteOutlined } from "@ant-design/icons";
+import { deleteContact } from "../../apis/contact";
+import Cookies from "js-cookie";
+import { message } from "antd";
 
 const getRandomColorHex = () => {
   // Generate a random hexadecimal color
@@ -8,7 +12,32 @@ const getRandomColorHex = () => {
   return randomColor;
 };
 
-const ContactList = ({ serial, name, photo, email, phone, address, tags, onClick }) => {
+const onDeleteClick = async (id) => {
+  try {
+    const response = await deleteContact(
+      id,
+      JSON.parse(Cookies.get("contact")).accessToken
+    );
+    console.log(response)
+    message.success("Deleted Successfully.");
+  } catch (err) {
+    console.log(err)
+    message.error("Some error occured, could not delete");
+  }
+};
+
+const ContactList = ({
+  serial,
+  name,
+  photo,
+  email,
+  phone,
+  address,
+  tags,
+  onClick,
+  contact_id,
+  onDelete
+}) => {
   return (
     <div className="container" onClick={onClick}>
       <div className="contact-list-cell" style={{ flex: "1" }}>
@@ -37,6 +66,18 @@ const ContactList = ({ serial, name, photo, email, phone, address, tags, onClick
             </div>
           );
         })}
+      </div>
+      <div
+        className="delete-button contact-list-cell"
+        style={{ flex: "1" }}
+        onClick={async (e) => {
+          e.stopPropagation();
+          await onDeleteClick(contact_id);
+          console.log("delete", contact_id);
+          await onDelete()
+        }}
+      >
+        <DeleteOutlined className="delete-button" />
       </div>
     </div>
   );

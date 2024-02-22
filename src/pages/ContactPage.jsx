@@ -70,6 +70,17 @@ function ContactPage() {
     setModalVisible(false);
   };
 
+  const fetchUpdatedList = () => {
+    getAllContacts(JSON.parse(Cookies.get("contact")).accessToken)
+      .then((res) => {
+        console.log("response for delete: ", res);
+        setContacts(res.data.contact_profiles);
+      })
+      .catch((err) => {
+        console.log("Some error occured: ", err);
+      });
+  };
+
   useEffect(() => {
     console.log("Cookie: ", JSON.parse(Cookies.get("contact")));
     getLoggedInUserInfo(JSON.parse(Cookies.get("contact")).accessToken)
@@ -82,7 +93,6 @@ function ContactPage() {
   }, []);
 
   useEffect(() => {
-    console.log("Cookie: ", JSON.parse(Cookies.get("contact")));
     getAllContacts(JSON.parse(Cookies.get("contact")).accessToken)
       .then((res) => {
         console.log("response: ", res);
@@ -137,6 +147,8 @@ function ContactPage() {
                   phone={contact.contact_numbers}
                   address={contact.address}
                   tags={contact.labels}
+                  contact_id={contact.contact_profile_id}
+                  onDelete={fetchUpdatedList}
                 />
               );
             }
@@ -151,6 +163,7 @@ function ContactPage() {
         handleCancel={handleCancel}
         initialValues={contacts}
         selectedContact={selectedContact}
+        fetchUpdatedList={fetchUpdatedList}
       />
     </>
   );

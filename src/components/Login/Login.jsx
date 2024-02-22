@@ -1,45 +1,50 @@
 import { useState, useEffect } from "react";
 import "./login.css";
 import { Link, Navigate } from "react-router-dom";
-import { Input, Form } from "antd";
+import { Input, Form, message } from "antd";
 import { login } from "../../apis/users";
 import Cookies from "js-cookie";
 
 const Login = ({ signUpClick }) => {
-  const [loginStatus, setLoginStatus] = useState("loggedout"); //three states, 1. loggedout, 2. loggedin, 3. loginerror, 4.phq
+  const [loginStatus, setLoginStatus] = useState("loggedout");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onFinish = async (values) => {
-    const response = await login(
-      values.username.trim(),
-      values.password.trim()
-    );
-
-    console.log("INput values and res: ", values, response);
-
-    if (response === "error") {
-      // possible cert error
-      setIsModalOpen(true);
-    }
-
-    if (response.status === 200) {
-      Cookies.set(
-        "contact",
-        JSON.stringify({
-          accessToken: response.data.token,
-          email: response.data.user.email,
-          id: response.data.user.id,
-          firstName: response.data.user.first_name,
-          lastName: response.data.user.last_name,
-          username: response.data.user.username,
-        }),
-        {
-          expires: 7,
-        }
+    try {
+      const response = await login(
+        values.username.trim(),
+        values.password.trim()
       );
-      setLoginStatus("loggedin");
-    } else {
-      setLoginStatus("loginerror");
+
+      console.log("INput values and res: ", values, response);
+
+      if (response === "error") {
+        // possible cert error
+        setIsModalOpen(true);
+      }
+
+      if (response.status === 200) {
+        Cookies.set(
+          "contact",
+          JSON.stringify({
+            accessToken: response.data.token,
+            email: response.data.user.email,
+            id: response.data.user.id,
+            firstName: response.data.user.first_name,
+            lastName: response.data.user.last_name,
+            username: response.data.user.username,
+          }),
+          {
+            expires: 7,
+          }
+        );
+        setLoginStatus("loggedin");
+      } else {
+        setLoginStatus("loginerror");
+        message.error("Could not Login");
+      }
+    } catch (err) {
+      message.error("Could not Login");
     }
   };
 
