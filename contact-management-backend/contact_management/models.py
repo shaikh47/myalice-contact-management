@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.conf import settings
 
 class Contact(models.Model):
@@ -23,6 +23,7 @@ class ContactProfile(models.Model):
     source = models.TextField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
     
 class Label(models.Model):
     label_id = models.AutoField(primary_key=True)

@@ -81,12 +81,17 @@ def get_login_user_data_from_jwt(request):
 @api_view(['GET', 'POST']) 
 def get_all_contacts(request):
     isAuthenticated = IsAuthenticated(request)
+    user, token = JWT_authenticator.authenticate(request)
+    username = token.payload.get('username')
+    print("This is the username: ", username)
+    
     if isAuthenticated != 200:
         return Response({'data': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
     
     if request.method == 'GET':   
         try:
-            contact_profiles = ContactProfile.objects.all()
+            user_instance = User.objects.get(username=username)
+            contact_profiles = ContactProfile.objects.filter(username=user_instance.id)
             contact_profiles_data = []
             for contact_profile in contact_profiles:
                 labels = Label.objects.filter(contact_profile=contact_profile)
@@ -107,8 +112,17 @@ def get_all_contacts(request):
         
     elif request.method == 'POST':   
         try:
+            user_instance = User.objects.get(username=username)
+
+            contact_profile_data = {
+                'username': user_instance.id,
+                **request.data,
+            }
+            
+            print("This is the object: ", contact_profile_data)
+            
             # Deserialize the request data using the ContactProfileSerializer
-            contact_profile_serializer = ContactProfileSerializer(data=request.data)
+            contact_profile_serializer = ContactProfileSerializer(data=contact_profile_data)
             if contact_profile_serializer.is_valid():
                 # Save the ContactProfile instance
                 contact_profile = contact_profile_serializer.save()
@@ -354,7 +368,7 @@ def delete_number_for_contact(request):
     
 def IsAuthenticated(request):
     response = JWT_authenticator.authenticate(request)
-    print("this shit: ", response)
+    print("response: ", response)
     
     if response is None:
         return 401

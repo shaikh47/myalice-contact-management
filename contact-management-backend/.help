@@ -25,6 +25,7 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 
+write None if asked
 
 # dependencies
 pip install djangorestframework
