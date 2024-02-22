@@ -9,5 +9,38 @@
   border: 1px solid #47455e;
   justify-content: space-between;
   padding: 10px 20px;
-  background: #1b1b1b;
+  background: #252527;
+}
+
+.search-input {
+  background-color: #252527;
+  color: aliceblue;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.contact-table-container {
+  background-color: #1b1b1b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.add-contact-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.add-contact-button {
+  background-color: #8850f9;
+  border: none;
+  color: azure;
+}
+
+.add-contact-button:hover {
+  background-color: #7738f5 !important;
+  border: none;
+  color: azure !important;
 }

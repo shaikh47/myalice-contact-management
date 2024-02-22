@@ -1,44 +1,13 @@
-.right-element {
-  margin-left: auto !important;
-}
-
-.reset-button {
-  color: #ff0000;
-  font-weight: 600;
-  user-select: none;
-}
-
-.reset-button:hover {
-  background: #ff0000 !important;
-}
-
-.start-button {
-  color: #1d8f35;
-  font-weight: 600;
-  user-select: none;
-}
-
-.start-button:hover {
-  background: #1d8f35 !important;
-}
-
-.control-buttons {
-  font-weight: 600;
-  user-select: none;
-}
-
-.control-buttons:hover {
-  background: #5f6ce1 !important;
-}
-
 .menu {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background: #005b41;
+  background: #2b2a2a;
   display: flex;
   align-items: center;
+  height: 50px;
+  padding: 0px 20px;
 }
 
 .profile-icon {
@@ -49,14 +18,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f39f5a;
+  background: #C69749;
+  color: #461111;
 }
 
 .profile-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 16px;
   font-weight: 600;
+  color: azure;
+}
+
+.navbar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: aliceblue;
+  margin-right: auto;
 }

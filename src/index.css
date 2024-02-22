@@ -3,3 +3,29 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #151515;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0px 20px 20px 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0px 20px 20px 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ant-form-item .ant-form-item-label >label {
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: 600;
+}

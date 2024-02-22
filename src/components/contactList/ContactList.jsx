@@ -8,9 +8,9 @@ const getRandomColorHex = () => {
   return randomColor;
 };
 
-const ContactList = ({ serial, name, photo, email, phone, address, tags }) => {
+const ContactList = ({ serial, name, photo, email, phone, address, tags, onClick }) => {
   return (
-    <div className="container">
+    <div className="container" onClick={onClick}>
       <div className="contact-list-cell" style={{ flex: "1" }}>
         {serial}
       </div>
